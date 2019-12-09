@@ -9,7 +9,7 @@ header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
 
-require_once('node.class.php');
+require_once('entities/node.class.php');
 $node = new Node();
 $node->setDB($node->connect("localhost"));
 

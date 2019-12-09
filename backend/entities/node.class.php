@@ -3,7 +3,7 @@
  * User: Jose J. Pardines
  * Date: 2019-12-08
  */
-require_once("config.class.php");
+require_once("./config/config.class.php");
 
 class Node extends Config
 {
@@ -139,7 +139,7 @@ class Node extends Config
     /**
      * Set connection to MySQL
      *
-     * @param PDO $db PDO MySQL connection
+     * @param mysqli $db PDO MySQL connection
      */
     public function setDB($db)
     {
