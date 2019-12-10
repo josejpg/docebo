@@ -9,8 +9,8 @@ class Accordion {
 	constructor( options = null ) {
 		if ( options ) {
 			this.options = options;
+			this.init();
 		}
-		this.init();
 	}
 
 	/**
@@ -56,7 +56,7 @@ class Accordion {
 		const materialIcon = this._createElement( 'i', 'material-icons', 'keyboard_arrow_down' );
 		containerInfo.appendChild( this._createElement( 'div', 'item-title col xs-10 sm-10 md-10 xl-10', item.title ) );
 		containerInfo.appendChild( this._createElement( 'div', 'item-icon col xs-2 sm-2 md-2 xl-2 align-flex-end', null, materialIcon.outerHTML ) );
-		if(item.subtitle) {
+		if ( item.subtitle ) {
 			containerInfo.appendChild( this._createElement( 'div', 'item-subtitle col xs-12 sm-12 md-12 xl-12', item.subtitle ) );
 		}
 		containerDesc.appendChild( this._createElement( 'div', 'item-desc col xs-12 sm-12 md-12 xl-12', null, item.content ) );
@@ -141,9 +141,8 @@ class Accordion {
 	 * Init the accordion, creating panels and adding click listeners
 	 */
 	init() {
-		const accordion = this._createElement( 'div', 'accordion box-shadow' );
-
 		if ( this.options ) {
+			const accordion = this._createElement( 'div', 'accordion box-shadow' );
 			if ( !this._isEmpty( this.options.mainTitle ) ) {
 				const mainTitle = this._createElement( 'div', 'col xs-12 sm-12 md-12 xl-12', this.options.mainTitle );
 				accordion.appendChild( this._createElement( 'div', 'row main-title', null, mainTitle.outerHTML ) );
@@ -154,7 +153,7 @@ class Accordion {
 			}
 
 			document.getElementById( this.options.container ).appendChild( accordion );
+			this._addEventListener();
 		}
-		this._addEventListener();
 	}
 }
